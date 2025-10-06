@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Apresentação 3D</title>
+    <style>
+        /* Estilos gerais da página */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+            perspective: 1000px; /* Define a perspectiva 3D para a cena */
+        }
+
+        /* O container que segura o cartão. É aqui que a perspectiva 3D é aplicada. */
+        .card-container {
+            width: 350px;
+            height: 200px;
+        }
+        
+        /* O cartão em si, que vai girar */
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d; /* Essencial para manter o espaço 3D */
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        /* Efeito de virada ao passar o mouse sobre o container */
+        .card-container:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        /* Estilo comum para a frente e o verso do cartão */
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Esconde a face que está "atrás" */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box; /* Garante que o padding não altere o tamanho final */
+        }
+
+        /* Estilo da FRENTE do cartão */
+        .card-front {
+            background: linear-gradient(45deg, #d0d4d6, #363795);
+            color: white;
+        }
+
+        .card-front h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .card-front p {
+            margin: 5px 0 0;
+            font-size: 16px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        
+        /* Estilo do VERSO do cartão */
+        .card-back {
+            background:#e2e5e7;
+            color: #333;
+            transform: rotateY(180deg); /* Começa virado para trás */
+        }
+        
+        .card-back h2 {
+            margin: 0 0 15px 0;
+            border-bottom: 2px solid #005c97;
+            padding-bottom: 5px;
+        }
+        
+        .card-back ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .card-back li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .card-back a {
+            color: #363795;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .card-back a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card-container" title="Passe o mouse para virar">
+        <div class="card">
+            <div class="card-face card-front">
+                <h1>Sara Roma</h1>
+                
+            </div>
+            <div class="card-face card-back">
+                <h2>Contato</h2>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:sara_hsd@hotmail.com">sara_hsd@hotmail.com</a></li>
+                    <li><strong>Telefone:</strong> <a href="tel:(71)99999-999">+55 (71)99999-999</a></li>
+                    <li><strong>Site:</strong> <a href="https://seusite.com" target="_blank">https://github.com/</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
